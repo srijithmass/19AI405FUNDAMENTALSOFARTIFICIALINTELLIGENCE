@@ -1,11 +1,11 @@
-<h1>ExpNo 7 : Solve Cryptarithmetic Problem,a CSP(Constraint Satisfaction Problem) using Python</h1> 
-<h3>Name: Saravanan N</h3>
-<h3>Register Number/Staff Id: TSML006</h3>
-<H3>Aim:</H3>
-<p>
-    To solve Cryptarithmetic Problem,a CSP(Constraint Satisfaction Problem) using Python
-</p>
-<h3>Procedure:</h3>
+# Exp no 07 : SOLVE CRYPT ARITHMETIC PROBLEM, A CSP(CONSTRAINT SATISFACTION PROBLEM)
+## NAME : SRIJITH R
+## REGISTER NUMBER : 212221240054
+## AIM:
+
+   To solve Cryptarithmetic Problem,a CSP(Constraint Satisfaction Problem) using Python
+
+## PROCEDURE:
 Input and Output
 <br>Input:
 This algorithm will take three words.
@@ -72,11 +72,47 @@ Begin<br>
    return false<br>
 End<br>
 <hr>
-<h2>Sample Input and Output:</h2>
+
+## SAMPLE INPUT AND OUTPUT:
 SEND = 9567<br>
 MORE = 1085<br>
 <hr>
 MONEY = 10652<br>
 <hr>
-<h2>Result:</h2>
-<p> Thus a Cryptarithmetic Problem was solved using Python successfully</p>
+
+## PROGRAM:
+```PYTHON
+from itertools import permutations
+
+def solve_cryptarithmetic():
+    for perm in permutations(range(10), 8):
+        S, E, N, D, M, O, R, Y = perm
+
+        # Check for leading zeros
+        if S == 0 or M == 0:
+            continue
+
+        # Check the equation constraints
+        SEND = 1000 * S + 100 * E + 10 * N + D
+        MORE = 1000 * M + 100 * O + 10 * R + E
+        MONEY = 10000 * M + 1000 * O + 100 * N + 10 * E + Y
+
+        if SEND + MORE == MONEY:
+            return SEND, MORE, MONEY
+
+    return None
+
+solution = solve_cryptarithmetic()
+
+if solution:
+    SEND, MORE, MONEY = solution
+    print(f'SEND = {SEND}')
+    print(f'MORE = {MORE}')
+    print(f'MONEY = {MONEY}')
+else:
+    print("No solution found.")
+```
+## OUTPUT:
+![image](https://github.com/aakaashvp/19AI405FUNDAMENTALSOFARTIFICIALINTELLIGENCE/assets/75235212/d33e7ff1-2424-43df-a9a3-a90e6ce67f29)
+## RESULT:
+<p> Thus, a Crypt Arithmetic Problem was solved using Python successfully.</p>
